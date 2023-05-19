@@ -1,0 +1,19 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap');
+
+/* Aplicar Open Sans Light al cuerpo */
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+
+/* Aplicar Open Sans Light a encabezados y párrafos */
+h1, h2, h3, h4, h5, h6,
+p {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
