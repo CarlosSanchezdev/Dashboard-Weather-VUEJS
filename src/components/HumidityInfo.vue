@@ -1,10 +1,7 @@
 <template>
-  <div class="wind-info">
-    <p class="label">Wind</p>
-    <div class="wind-value">
-      <p>{{ weatherData.current.wind_kph }} km/h</p>
-      <p class="wind-direction">{{ weatherData.current.wind_dir }}</p>
-    </div>
+  <div class="humidity-info">
+    <p class="label">Humidity</p>
+    <p class="humidity-value">{{ weatherData.current.humidity }}%</p>
   </div>
 </template>
 
@@ -20,9 +17,11 @@ export default {
 </script>
 
 <style scoped>
-.wind-info {
- margin: 20px;
- margin-top: 0;
+
+
+.humidity-info {
+  margin: 20px;
+  margin-top: 0;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45), 5px 5px 9px rgba(94, 104, 121, 0.3);
@@ -34,20 +33,14 @@ export default {
   align-items: center; /* Centrar verticalmente el contenido */
 }
 
-.wind-info .label {
+.humidity-info .label {
   font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.wind-value {
-  display: flex;
-  flex-direction: column;
-  margin-left: 10px;
-}
-
-.wind-direction {
-  font-size: 18px;
+.humidity-value {
+  font-size: 24px;
   font-weight: bold;
 }
 </style>

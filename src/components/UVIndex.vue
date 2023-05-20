@@ -1,9 +1,9 @@
 <template>
-  <div class="wind-info">
-    <p class="label">Wind</p>
-    <div class="wind-value">
-      <p>{{ weatherData.current.wind_kph }} km/h</p>
-      <p class="wind-direction">{{ weatherData.current.wind_dir }}</p>
+  <div class="uv-index">
+    <p class="label">UV Index</p>
+    <div class="uv-value">
+      <p>{{ weatherData.current.uv }}</p>
+      <div class="uv-bar" :style="{ width: uvBarWidth }"></div>
     </div>
   </div>
 </template>
@@ -15,14 +15,24 @@ export default {
       type: Object,
       required: true
     }
+  },
+  computed: {
+    uvBarWidth() {
+      if (this.weatherData) {
+        const uv = this.weatherData.current.uv;
+        return `${(uv / 16) * 100}%`;
+      }
+      return '0%';
+    }
   }
 };
 </script>
 
 <style scoped>
-.wind-info {
- margin: 20px;
- margin-top: 0;
+.uv-index {
+
+  margin: 20px;
+  margin-top: 0;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: -5px -5px 9px rgba(255, 255, 255, 0.45), 5px 5px 9px rgba(94, 104, 121, 0.3);
@@ -34,20 +44,26 @@ export default {
   align-items: center; /* Centrar verticalmente el contenido */
 }
 
-.wind-info .label {
-  font-size: 18px;
+.uv-index .label {
+font-size: 18px;
   font-weight: bold;
   margin-bottom: 10px;
 }
 
-.wind-value {
+.uv-value {
   display: flex;
-  flex-direction: column;
-  margin-left: 10px;
+  align-items: center;
 }
 
-.wind-direction {
-  font-size: 18px;
+.uv-value p {
+  font-size: 24px;
   font-weight: bold;
+  margin-right: 10px;
+}
+
+.uv-bar {
+  height: 8px;
+  background-color: #ff6b6b;
+  border-radius: 4px;
 }
 </style>
